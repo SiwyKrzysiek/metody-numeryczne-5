@@ -45,10 +45,39 @@ Y = arrayfun(f, X);
 rzedy = [1 2 3 4];
 
 for r = rzedy
-   w = zlozonyNewtonCotes(Y, 0.01, r) 
+    w = zlozonyNewtonCotes(Y, 0.01, r) 
 end
 
 
+%% Zadanie 3
+clc;
+clear;
+format long;
+
+W = [zeros(1000) zeros(1000) zeros(1000) zeros(1000)];
+rzedy = [1 2 3 4];
+a = -2;
+b = 2;
+f = @(x)(11 * x^10);
+
+for r = rzedy
+    for i = (r + 1):1000
+        n = (r - 1) * i + 1;
+        h = (b - a)/(n - 1);
+        
+        X = linspace(a, b, n);
+        Y = arrayfun(f, X);
+
+        W(r, i) = zlozonyNewtonCotes(Y, h, r);
+        
+
+    end
+end
+
+%%
+
+    loglog([1:1000], abs(W(1) - 2.0), '-r', [1:1000], abs(W(2) - 2.0), '-g', [1:1000], abs(W(3) - 2.0), '-b', [1:1000], abs(W(4) - 2.0), '-y')
+    grid on
 
 
 
