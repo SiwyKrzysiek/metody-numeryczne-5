@@ -45,7 +45,7 @@ Y = arrayfun(f, X);
 rzedy = [1 2 3 4];
 
 for r = rzedy
-    w = zlozonyNewtonCotes(Y, 0.01, r) 
+    w = zlozonyNewtonCotes(Y, 0.01, r)
 end
 
 
@@ -79,9 +79,8 @@ end
     loglog([1:1000], abs(W(1) - 2.0), '-r', [1:1000], abs(W(2) - 2.0), '-g', [1:1000], abs(W(3) - 2.0), '-b', [1:1000], abs(W(4) - 2.0), '-y')
     grid on
 
+%% Test funkcji do indeksow
+clc;
+clear;
 
-
-
-
-
-
+utworzNakladajaceIndeksy(9, 3)

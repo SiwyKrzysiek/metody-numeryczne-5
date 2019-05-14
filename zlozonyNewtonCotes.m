@@ -1,20 +1,12 @@
 function wynik = zlozonyNewtonCotes(wartosci, krok, rzad)
 %ZLOZONYNEWTONCOTES Ca?kowanie metod? prost? Newtona-Cotesa
-rzad = int16(rzad);
 wynik = 0;
 
-lTypowychPrzedzialow = idivide(length(wartosci), rzad);
-for i = 0:lTypowychPrzedzialow-1
-   a = i * rzad + 1;
-   b = a + rzad - 1;
-   
-   wynik = wynik + prostyNewtonCotes(wartosci(a:b), krok);
-end
+indeksy = utworzNakladajaceIndeksy(length(wartosci), rzad+1);
 
-n = length(wartosci);
-if b < n %Zosta? niepe?ny przedzia?
-    wynik = wynik + prostyNewtonCotes(wartosci(b+1:n), krok);
+for i = indeksy
+     przedzial = wartosci(i(1):i(2));
+     wynik = wynik + prostyNewtonCotes(przedzial, krok);
 end
 
 end
-

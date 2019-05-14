@@ -31,4 +31,3 @@ end
 wynik = wynik * (krok * (length(wartosci)-1));
 wynik = wynik / ns;
 end
-
