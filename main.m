@@ -78,6 +78,7 @@ end
 %%
     loglog([1:1000], abs(W(1, :) - 2.0), '-r', [1:1000], abs(W(2, :) - 2.0), '-g', [1:1000], abs(W(3, :) - 2.0), '-b', [1:1000], abs(W(4, :) - 2.0), '-m')
     grid on
+    legend('d = 1','d = 2','d = 3','d = 4')
 
 %% Test funkcji do indeksow
 clc;
